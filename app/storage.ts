@@ -22,7 +22,7 @@ export const storeData = async (value: Items): Promise<boolean> => {
 
     return true;
   } catch (error) {
-    console.error("Error storing data", error);
+    //console.error("Error storing data", error);
     return false;
   }
 };

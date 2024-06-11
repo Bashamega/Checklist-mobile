@@ -15,7 +15,7 @@ export function HomeScreen({ navigation}: { navigation: any}) {
     const fetchData = async () => {
       //console.log(true)
       const res: Items[] | null = await getData()
-      console.log(res)
+      //console.log(res)
       if (res) {
         setList(res)
       }
