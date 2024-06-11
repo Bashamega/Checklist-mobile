@@ -20,7 +20,7 @@ export const List = ({ data, reload }: { data: Items[], reload:any}) => {
     const handleDone = async (item:Items)=>{
         let moddifiedData = item;
         moddifiedData.done = !item.done;
-        console.log({moddifiedData})
+        //console.log({moddifiedData})
         const res = await updateDataDone(moddifiedData)
         if (res) {
             reload()
@@ -29,7 +29,7 @@ export const List = ({ data, reload }: { data: Items[], reload:any}) => {
                 {
                     text: 'Okay',
                     onPress: () => reload(),
-                    style: 'cancel',
+                    style: 'default',
                 },
             ]);
         }

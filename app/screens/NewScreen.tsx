@@ -25,7 +25,7 @@ export function NewItemScreen({ navigation, route }: { navigation: any, route: a
                     {
                         text: 'Okay',
                         onPress: () => navigation?.navigate('Home'),
-                        style: 'cancel',
+                        style: 'default',
                     },
                 ]);
             }

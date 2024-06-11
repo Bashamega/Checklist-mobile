@@ -31,7 +31,7 @@ export const getData = async (): Promise<Items[] | null> => {
   return value ? JSON.parse(value) : null;
 };
 export const updateDataDone = async (value: Items): Promise<boolean> => {
-  console.log("started")
+  //console.log("started")
   try {
     // Retrieve existing data
     const existingData = await AsyncStorage.getItem("items");
@@ -58,6 +58,16 @@ export const updateDataDone = async (value: Items): Promise<boolean> => {
     const jsonValue = JSON.stringify(dataArray);
     await AsyncStorage.setItem("items", jsonValue);
 
+    return true;
+  } catch (error) {
+    //console.error("Error storing data", error);
+    return false;
+  }
+};
+export const clearData = async (): Promise<boolean> => {
+  try {
+   
+    await AsyncStorage.setItem("items", 'null');
     return true;
   } catch (error) {
     //console.error("Error storing data", error);
