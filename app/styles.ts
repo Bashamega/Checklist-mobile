@@ -34,21 +34,14 @@ export const styles = StyleSheet.create({
         width: '100%',
         textAlign: 'center',
         flexDirection: 'row',
-        marginBottom: 8
-    },
-    done:{
-        
-      backgroundColor: "#333",
-      padding: 15,
-      borderRadius: 15,
-      width: '100%',
-      textAlign: 'center',
-      flexDirection: 'row',
-      marginBottom: 8
+        marginBottom: 8,
+        position: 'relative'
+    
   },
     title:{
         color:'#fff',
         fontSize: 20,
+        width:'80%'
     },
     appButtonContainer: {
       elevation: 8,
@@ -75,6 +68,10 @@ export const styles = StyleSheet.create({
         marginBottom: 10,
         width: '100%',
         color: 'white'
+    },icon:{
+      position:'absolute',
+      right:5,
+      top:10
     }
   });
   
