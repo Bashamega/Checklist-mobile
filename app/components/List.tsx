@@ -16,12 +16,12 @@ const Item = ({ title, done, handleDone }: ItemProps) => (
     </TouchableOpacity>
 );
 
-export const List = ({ data, reload }: { data: Items[], reload: any }) => {
+export const List = ({ data, reload, date }: { data: Items[], reload: any, date: string }) => {
     const handleDone = async (item: Items) => {
         let moddifiedData = item;
         moddifiedData.done = !item.done;
         //console.log({moddifiedData})
-        const res = await updateDataDone(moddifiedData)
+        const res = await updateDataDone(date, moddifiedData)
         if (res) {
             reload()
         } else {
