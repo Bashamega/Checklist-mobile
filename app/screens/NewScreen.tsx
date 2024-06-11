@@ -18,7 +18,9 @@ export function NewItemScreen({ navigation, route }: { navigation: any, route: a
                 done: isDone
             })
             if (res) {
-                navigation?.navigate('Home')
+                setTimeout(() => {
+                    navigation?.navigate('Home')
+                }, 5000);
             } else {
                 Alert.alert('Checklist', 'There was an error. Please try again later', [
                     {
