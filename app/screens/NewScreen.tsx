@@ -9,6 +9,7 @@ export function NewItemScreen({ navigation, route }: { navigation: any, route: a
     const [error, setError] = useState<boolean>(false); // Assuming error is always false initiall
     const [value, setValue] = useState<string>("");
     const [isDone, setIsDone] = useState<boolean>(false);
+    
     const submit = async () => {
         setError(false)
         if (value) {
@@ -18,9 +19,7 @@ export function NewItemScreen({ navigation, route }: { navigation: any, route: a
                 done: isDone
             })
             if (res) {
-                setTimeout(() => {
-                    navigation?.navigate('Home')
-                }, 5000);
+                navigation?.navigate('Home')
             } else {
                 Alert.alert('Checklist', 'There was an error. Please try again later', [
                     {

@@ -5,10 +5,15 @@ import { List } from '../components/List';
 import { AppButton } from '../components/Btn';
 import { Items } from '../types';
 import { getData } from '../storage';
-export function HomeScreen({ navigation, route }: { navigation: any, route: any }) {
-  const [list, setList] = useState<Items[] | []>([])
+import { useRoute } from '@react-navigation/native';
+import { useNavigationState } from '@react-navigation/native';
+export function HomeScreen({ navigation}: { navigation: any}) {
+  const [list, setList] = useState<Items[] | []>([]);
+  const state = useNavigationState((state:any) => state?.index);
+  const route = useRoute()
   useEffect(() => {
     const fetchData = async () => {
+      //console.log(true)
       const res: Items[] | null = await getData()
       console.log(res)
       if (res) {
@@ -16,7 +21,7 @@ export function HomeScreen({ navigation, route }: { navigation: any, route: any 
       }
     };
     fetchData();
-  }, [])
+  },[route.key, state])
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.heading}>My Checklist</Text>
