@@ -54,8 +54,17 @@ export const styles = StyleSheet.create({
       alignSelf: "center",
       textTransform: "uppercase",
     },
-    none:{
+    white:{
       color:'#fff'
+    },
+    inputContainer:{
+        borderWidth: 1,
+        borderColor: '#ccc',
+        borderRadius: 5,
+        padding: 10,
+        marginBottom: 10,
+        width: '100%',
+        color: 'white'
     }
   });
   
