@@ -12,12 +12,12 @@ import { updateDataDone } from '../storage';
 const Item = ({ title, done, handleDone }: ItemProps) => (
     <TouchableOpacity style={styles.item} onPress={handleDone}>
         <Text style={styles.title}>{title}</Text>
-        <Ionicons name="checkmark-circle" size={32} color={done?"green":"gray"} style={styles.icon} />
+        <Ionicons name="checkmark-circle" size={32} color={done ? "green" : "gray"} style={styles.icon} />
     </TouchableOpacity>
 );
 
-export const List = ({ data, reload }: { data: Items[], reload:any}) => {
-    const handleDone = async (item:Items)=>{
+export const List = ({ data, reload }: { data: Items[], reload: any }) => {
+    const handleDone = async (item: Items) => {
         let moddifiedData = item;
         moddifiedData.done = !item.done;
         //console.log({moddifiedData})
@@ -38,10 +38,10 @@ export const List = ({ data, reload }: { data: Items[], reload:any}) => {
     return (
         <FlatList
             data={data}
-            renderItem={({ item }: { item: Items }) => <Item handleDone={()=>{handleDone(item)}}  title={item.name} done={item.done} />}
+            renderItem={({ item }: { item: Items }) => <Item handleDone={() => { handleDone(item) }} title={item.name} done={item.done} />}
             keyExtractor={item => item.id.toString()}
             style={styles.main}
-            
+
         />
     );
 };

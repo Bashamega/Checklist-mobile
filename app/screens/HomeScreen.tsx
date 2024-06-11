@@ -7,35 +7,35 @@ import { Items } from '../types';
 import { clearData, getData } from '../storage';
 import { useRoute } from '@react-navigation/native';
 import { useNavigationState } from '@react-navigation/native';
-export function HomeScreen({ navigation}: { navigation: any}) {
+export function HomeScreen({ navigation }: { navigation: any }) {
   const [list, setList] = useState<Items[] | []>([]);
-  const state = useNavigationState((state:any) => state?.index);
+  const state = useNavigationState((state: any) => state?.index);
   const route = useRoute()
   const fetchData = async () => {
-      //console.log(true)
-      const res: Items[] | null = await getData()
-      //console.log(res)
-      if (res) {
-        setList(res)
-      }else{
-        setList([])
-      }
-    };
+    //console.log(true)
+    const res: Items[] | null = await getData()
+    //console.log(res)
+    if (res) {
+      setList(res)
+    } else {
+      setList([])
+    }
+  };
   useEffect(() => {
-    
+
     fetchData();
-  },[route.key, state])
-  const handleClear = async()=>{
+  }, [route.key, state])
+  const handleClear = async () => {
     const res = await clearData();
-    if(res){
+    if (res) {
       fetchData()
-    }else{
+    } else {
       Alert.alert('Checklist', 'There was an error. Please try again later', [
         {
-            text: 'Okay',
-            style: 'default',
+          text: 'Okay',
+          style: 'default',
         },
-    ]);
+      ]);
     }
   }
   return (
@@ -43,11 +43,11 @@ export function HomeScreen({ navigation}: { navigation: any}) {
       <Text style={styles.heading}>My Checklist</Text>
 
       <View style={[styles.main, { flex: 1, alignItems: 'center', justifyContent: 'center', gap: 10 }]}>
-        <View style={list? {display:'flex', gap:2}:{}}>
-        <AppButton title='Add New Item' onPress={() => { navigation?.navigate('New') }} />
-        {list.length !== 0&&(
-          <AppButton title='clear' onPress={handleClear}></AppButton>
-        )}
+        <View style={list ? { display: 'flex', gap: 2 } : {}}>
+          <AppButton title='Add New Item' onPress={() => { navigation?.navigate('New') }} />
+          {list.length !== 0 && (
+            <AppButton title='clear' onPress={handleClear}></AppButton>
+          )}
         </View>
         {list.length !== 0 ?
           <List data={list} reload={fetchData} />

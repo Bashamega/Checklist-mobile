@@ -9,7 +9,7 @@ export function NewItemScreen({ navigation, route }: { navigation: any, route: a
     const [error, setError] = useState<boolean>(false); // Assuming error is always false initiall
     const [value, setValue] = useState<string>("");
     const [isDone, setIsDone] = useState<boolean>(false);
-    
+
     const submit = async () => {
         setError(false)
         if (value) {

@@ -15,7 +15,7 @@ export const storeData = async (value: Items): Promise<boolean> => {
 
     // Add the new value to the array
     dataArray.push(value);
-    
+
     // Save the updated array back to AsyncStorage
     const jsonValue = JSON.stringify(dataArray);
     await AsyncStorage.setItem("items", jsonValue);
@@ -45,15 +45,15 @@ export const updateDataDone = async (value: Items): Promise<boolean> => {
     }
 
     // Add the new value to the array
-    const updatedDataArray = dataArray.map(element => {        
+    const updatedDataArray = dataArray.map((element) => {
       //console.log({element, value})
-      if(element.id === value.id){
+      if (element.id === value.id) {
         return { ...element, done: value.done };
       }
       return element;
     });
     dataArray = updatedDataArray;
-    //console.log(dataArray)    
+    //console.log(dataArray)
     // Save the updated array back to AsyncStorage
     const jsonValue = JSON.stringify(dataArray);
     await AsyncStorage.setItem("items", jsonValue);
@@ -66,8 +66,7 @@ export const updateDataDone = async (value: Items): Promise<boolean> => {
 };
 export const clearData = async (): Promise<boolean> => {
   try {
-   
-    await AsyncStorage.setItem("items", 'null');
+    await AsyncStorage.setItem("items", "null");
     return true;
   } catch (error) {
     //console.error("Error storing data", error);
