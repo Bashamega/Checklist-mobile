@@ -7,8 +7,8 @@ import {
 } from 'react-native';
 import { Items, ItemProps } from '../types';
 
-const Item = ({ title }: ItemProps) => (
-    <View style={styles.item}>
+const Item = ({ title, done }: ItemProps) => (
+    <View style={done? styles.done:styles.item}>
         <Text style={styles.title}>{title}</Text>
     </View>
 );
@@ -17,7 +17,7 @@ export const List = ({ data }: { data: Items[] }) => {
     return (
         <FlatList
             data={data}
-            renderItem={({ item }: { item: Items }) => <Item title={item.name} />}
+            renderItem={({ item }: { item: Items }) => <Item  title={item.name} done={item.done} />}
             keyExtractor={item => item.id.toString()}
             style={styles.main}
             

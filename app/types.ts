@@ -4,7 +4,7 @@ export type Items = {
     name: string,
     done: boolean
 }
-export type ItemProps = {title: string};
+export type ItemProps = {title: string, done: boolean};
 export type BtnProps = {
     onPress:((event: GestureResponderEvent) => void) | undefined,
     title:string

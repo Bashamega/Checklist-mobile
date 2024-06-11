@@ -36,6 +36,16 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         marginBottom: 8
     },
+    done:{
+        
+      backgroundColor: "#333",
+      padding: 15,
+      borderRadius: 15,
+      width: '100%',
+      textAlign: 'center',
+      flexDirection: 'row',
+      marginBottom: 8
+  },
     title:{
         color:'#fff',
         fontSize: 20,
