@@ -3,8 +3,6 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#DAD3BE",
-    alignItems: "center",
-    padding: 50,
   },
   heading: {
     fontWeight: "bold",
@@ -18,9 +16,8 @@ export const styles = StyleSheet.create({
   },
   main: {
     backgroundColor: "#6B8A7A",
-    marginTop: 50,
     width: "100%",
-    borderRadius: 15,
+    height: "100%",
     padding: 15,
   },
   item: {
@@ -68,5 +65,5 @@ export const styles = StyleSheet.create({
     position: "absolute",
     right: 5,
     top: 10,
-  },
+  }
 });
