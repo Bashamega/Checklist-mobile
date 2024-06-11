@@ -5,7 +5,7 @@ import { styles } from '../styles';
 import { List } from '../components/List';
 import { AppButton } from '../components/Btn';
 import { Items } from '../types';
-export function HomeScreen() {
+export function HomeScreen({navigation, route}:{navigation:, route:}) {
   const [list, setList] = useState<Items[] | []>([])
   return (
     <SafeAreaView style={styles.container}>
@@ -22,4 +22,3 @@ export function HomeScreen() {
     </SafeAreaView>
   );
 }
-

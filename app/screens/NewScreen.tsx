@@ -2,7 +2,7 @@ import React from 'react';
 import { Text } from 'react-native';
 import { styles } from '../styles';
 
-function NewScreen() {
+export function NewItemScreen() {
     return (
         <div  style={styles.container}>
             <Text style={styles.heading}>Add New Item</Text>
@@ -10,4 +10,3 @@ function NewScreen() {
     );
 }
 
-export default NewScreen;
