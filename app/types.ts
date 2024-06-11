@@ -3,6 +3,10 @@ export type Items = {
   id: number;
   name: string;
   done: boolean;
+  time: {
+    hours: number,
+    minutes: number
+  }
 };
 export type ItemProps = {
   title: string;
