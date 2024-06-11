@@ -39,6 +39,23 @@ export const styles = StyleSheet.create({
     title:{
         color:'#fff',
         fontSize: 20,
+    },
+    appButtonContainer: {
+      elevation: 8,
+      backgroundColor: "#254336",
+      borderRadius: 10,
+      paddingVertical: 10,
+      paddingHorizontal: 12,
+    },
+    appButtonText: {
+      fontSize: 18,
+      color: "#fff",
+      fontWeight: "bold",
+      alignSelf: "center",
+      textTransform: "uppercase",
+    },
+    none:{
+      color:'#fff'
     }
   });
   

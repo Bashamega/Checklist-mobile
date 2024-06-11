@@ -1,4 +1,4 @@
-import { View, Button, StyleSheet, TouchableOpacity, Text } from "react-native";
+import { TouchableOpacity, Text } from "react-native";
 import { styles } from "../styles";
 import { BtnProps } from "../types";
 export const AppButton = ({ onPress, title }: BtnProps) => (
