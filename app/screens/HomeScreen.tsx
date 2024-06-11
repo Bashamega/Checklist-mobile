@@ -5,7 +5,7 @@ import { styles } from '../styles';
 import { List } from '../components/List';
 import { AppButton } from '../components/Btn';
 import { Items } from '../types';
-export function HomeScreen({navigation, route}:{navigation:, route:}) {
+export function HomeScreen({navigation, route}:{navigation:any, route:any}) {
   const [list, setList] = useState<Items[] | []>([])
   return (
     <SafeAreaView style={styles.container}>
@@ -14,7 +14,7 @@ export function HomeScreen({navigation, route}:{navigation:, route:}) {
         <List data={list} />
         :
         <View style={[styles.main, {flex:1, alignItems:'center', justifyContent: 'center', gap: 10}]}>
-          <AppButton title='Add New Item' onPress={undefined}/>
+          <AppButton title='Add New Item' onPress={()=>{navigation?.navigate('New')}}/>
           <Text style={styles.none}>There are no items</Text>
         </View>
       }
