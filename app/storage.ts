@@ -1,9 +1,9 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Items } from "./types";
-export const storeData = async (value: Items): Promise<boolean> => {
+export const storeData = async (key:string, value: Items): Promise<boolean> => {
   try {
     // Retrieve existing data
-    const existingData = await AsyncStorage.getItem("items");
+    const existingData = await AsyncStorage.getItem(key);
     let dataArray: Items[] = [];
     // If there's existing data, parse it into an array
     if (existingData !== null) {
@@ -18,7 +18,7 @@ export const storeData = async (value: Items): Promise<boolean> => {
 
     // Save the updated array back to AsyncStorage
     const jsonValue = JSON.stringify(dataArray);
-    await AsyncStorage.setItem("items", jsonValue);
+    await AsyncStorage.setItem(key, jsonValue);
 
     return true;
   } catch (error) {

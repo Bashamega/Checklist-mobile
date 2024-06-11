@@ -13,7 +13,7 @@ export function NewItemScreen({ navigation, route }: { navigation: any, route: a
     const submit = async () => {
         setError(false)
         if (value) {
-            const res = await storeData({
+            const res = await storeData(route?.params?.date, {
                 id: Math.floor(Math.random() * 1000),
                 name: value,
                 done: isDone

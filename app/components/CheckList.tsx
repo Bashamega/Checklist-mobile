@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, Alert } from 'react-native';
+import { Text, View, Alert, ScrollView } from 'react-native';
 import { Items } from '../types';
 import { getData, clearData} from '../storage';
 import { styles } from '../styles';
@@ -24,7 +24,7 @@ export function CheckList({ navigation, currentDate }: { navigation: any, curren
   useEffect(() => {
 
     fetchData();
-  }, [route.key, state])
+  }, [route.key, state, currentDate])
   const handleClear = async () => {
     const res = await clearData(currentDate);
     if (res) {
@@ -39,9 +39,8 @@ export function CheckList({ navigation, currentDate }: { navigation: any, curren
     }
   }
   return (
-    <View style={[styles.container, {height: '100%'}]}>
+    <ScrollView style={[styles.container, {height: 'auto'}]}>
       <Text style={styles.heading}>My Checklist for {new Date(currentDate).toLocaleDateString('en-US', { weekday: 'short' })}.</Text>
-      <View style={[styles.main, { flex: 1, alignItems: 'center', justifyContent: 'center', gap: 10 }]}>
         <View style={list ? { display: 'flex', gap: 2 } : {}}>
           <AppButton title='Add New Item' onPress={() => { navigation?.navigate('New', {date: currentDate}) }} />
           {list.length !== 0 && (
@@ -51,11 +50,12 @@ export function CheckList({ navigation, currentDate }: { navigation: any, curren
         {list.length !== 0 ?
           <List data={list} reload={fetchData} date={currentDate} />
           :
-          <Text style={styles.white}>There are no items</Text>
+          <View style={styles.main}>
+            <Text style={styles.white}>There are no items</Text>
+          </View>
 
         }
-      </View>
 
-    </View>
+    </ScrollView>
   );
 }
