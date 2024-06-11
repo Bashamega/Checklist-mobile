@@ -9,9 +9,10 @@ import {
 import { Items, ItemProps } from '../types';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { updateDataDone } from '../storage';
-const Item = ({ title, done, handleDone }: ItemProps) => (
+const Item = ({ title, time, done, handleDone}: ItemProps) => (
     <TouchableOpacity style={styles.item} onPress={handleDone}>
         <Text style={styles.title}>{title}</Text>
+        <Text style ={{color:'white'}}>{time}</Text>
         <Ionicons name="checkmark-circle" size={32} color={done ? "green" : "gray"} style={styles.icon} />
     </TouchableOpacity>
 );
@@ -38,7 +39,7 @@ export const List = ({ data, reload, date }: { data: Items[], reload: any, date:
     return (
         <FlatList
             data={data}
-            renderItem={({ item }: { item: Items }) => <Item handleDone={() => { handleDone(item) }} title={item.name} done={item.done} />}
+            renderItem={({ item }: { item: Items }) => <Item time={`${item.time.hours}:${item.time.minutes}`} handleDone={() => { handleDone(item) }} title={item.name} done={item.done} />}
             keyExtractor={item => item.id.toString()}
             style={styles.main}
 

@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     borderRadius: 15,
     width: "100%",
     textAlign: "center",
-    flexDirection: "row",
+    flexDirection: "column",
     marginBottom: 8,
     position: "relative",
   },

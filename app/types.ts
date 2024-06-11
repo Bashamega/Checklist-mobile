@@ -11,6 +11,7 @@ export type Items = {
 export type ItemProps = {
   title: string;
   done: boolean;
+  time: string;
   handleDone: (event: GestureResponderEvent) => void;
 };
 export type BtnProps = {
