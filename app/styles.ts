@@ -65,5 +65,12 @@ export const styles = StyleSheet.create({
     position: "absolute",
     right: 5,
     top: 10,
+  },
+  tags:{
+    padding:5,
+    backgroundColor: "red",
+    color: "white",
+    borderRadius: 15,
+    textAlign: 'center'
   }
 });
