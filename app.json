@@ -12,7 +12,8 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.adam.basha.dev.CheckList"
     },
     "android": {
       "adaptiveIcon": {
@@ -23,6 +24,11 @@
     },
     "web": {
       "favicon": "./app/assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "97ca31c1-15ad-4f12-9756-eb6b6b0e16ac"
+      }
     }
   }
 }
